@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Menu | The Bait Cafe Reckong Peo - Best Food in Kalpa{% endblock %}
+{% block content %}
+
+<section class="page-hero hero-cafe-bg small-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="hero-tag">☕ The Bait Cafe</span>
+    <h1>Our Menu</h1>
+    <p class="small">Local food, fresh bakes &amp; great coffee in Reckong Peo, Kalpa</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    {% for section in menu %}
+    <div class="mb-5">
+      <h3 class="section-title">{{ section.category }}</h3>
+      <div class="row gy-3">
+        {% for item, price in section.dishes %}
+        <div class="col-md-6">
+          <div class="menu-item d-flex justify-content-between align-items-center">
+            <span>{{ item }}</span>
+            <span class="menu-price">{{ price }}</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="text-center mt-5">
+      <a href="{{ url_for('booking') }}" class="btn btn-cafe btn-lg">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

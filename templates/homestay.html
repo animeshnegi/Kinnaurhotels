@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Holasay Homestay Kalpa | Best Homestay Near Reckong Peo, Kinnaur{% endblock %}
+{% block content %}
+
+<section class="page-hero hero-homestay-bg">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="hero-tag">🏡 Holasay Homestay</span>
+    <h1>A Cosy Homestay in Kalpa, Kinnaur</h1>
+    <div class="d-flex align-items-center gap-2 mt-2">
+      <span class="stars">★★★★★</span>
+      <span class="small">{{ site.google_rating_homestay }}/5 &middot; {{ site.google_reviews_homestay }}+ Google reviews</span>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">About Holasay Homestay</h2>
+        <p class="text-muted">
+          Set in the apple-orchard village of Kalpa, just above Reckong Peo, <strong>Holasay Homestay</strong>
+          offers a genuine taste of Kinnauri hospitality. Wake up to views of the Kinner Kailash range, enjoy
+          home-cooked local food, and let our hosts help you plan your days around Kalpa, Kinnaur and the
+          Sangla valley.
+        </p>
+        <p class="text-muted">
+          It's the perfect base whether you're here for the apple orchards, the monasteries, or simply to relax
+          in one of the most scenic corners of Himachal Pradesh.
+        </p>
+        <a href="{{ url_for('booking') }}" class="btn btn-homestay">Check Availability</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <img src="/static/images/holasay_homestay/room3.jpg" class="img-fluid rounded-4 kp-img" alt="Holasay Homestay room Kalpa">
+          </div>
+          <div class="col-6">
+            <img src="/static/images/holasay_homestay/holasay_homestay_hero.jpg" class="img-fluid rounded-4 kp-img" alt="Holasay Homestay mountain view Kinnaur">
+          </div>
+          <div class="col-12">
+            <img src="/static/images/holasay_homestay/mountain_view.jpg" class="img-fluid rounded-4 kp-img" alt="Holasay Homestay exterior Kalpa Kinnaur">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="section-title text-center mb-4">Rooms &amp; Stay Options</h3>
+    <div class="row gy-4">
+      {% for room in rooms %}
+      <div class="col-md-4">
+        <div class="room-card h-100">
+          <h5>{{ room.name }}</h5>
+          <p class="price-tag">{{ room.price }}</p>
+          <p class="small text-muted">{{ room.desc }}</p>
+          <a href="{{ url_for('booking') }}" class="btn btn-sm btn-homestay w-100">Book This Room</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h3 class="section-title text-center mb-4">Google Reviews</h3>
+    <div class="row gy-4">
+      {% for r in reviews %}
+      <div class="col-md-4">
+        <div class="review-card h-100">
+          <div class="stars mb-2">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+          <p class="small text-muted">&ldquo;{{ r.text }}&rdquo;</p>
+          <p class="fw-semibold small mb-0">— {{ r.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{{ site.maps_link_homestay }}" target="_blank" class="btn btn-outline-dark">See All Reviews on Google</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section text-center py-5">
+  <div class="container">
+    <h3 class="text-white mb-3">Book the Best Homestay Near Reckong Peo</h3>
+    <a href="{{ url_for('booking') }}" class="btn btn-accent btn-lg">Check Availability</a>
+  </div>
+</section>
+
+{% endblock %}

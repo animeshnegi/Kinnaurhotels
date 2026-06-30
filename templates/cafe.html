@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}The Bait Cafe Reckong Peo | Best Local Food in Kalpa, Kinnaur{% endblock %}
+{% block content %}
+
+<section class="page-hero hero-cafe-bg">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="hero-tag">☕ The Bait Cafe</span>
+    <h1>Best Local Food in Kalpa &amp; Reckong Peo</h1>
+    <div class="d-flex align-items-center gap-2 mt-2">
+      <span class="stars">★★★★★</span>
+      <span class="small">{{ site.google_rating_cafe }}/5 &middot; {{ site.google_reviews_cafe }}+ Google reviews</span>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">About The Bait Cafe</h2>
+        <p class="text-muted">
+          Located right in Reckong Peo, the gateway town to Kalpa in Kinnaur, <strong>The Bait Cafe</strong> has
+          become a favourite stop for locals and travellers searching for the <strong>best food in Kalpa</strong>
+          region. From freshly brewed coffee to warm Himalayan bakery treats and comforting local dishes, every
+          plate here is made with care.
+        </p>
+        <p class="text-muted">
+          Whether you're heading up to Kalpa, exploring the Sangla valley, or simply passing through Reckong Peo,
+          The Bait Cafe offers a cosy place to relax with a view of the Kinner Kailash range.
+        </p>
+        <a href="{{ url_for('menu') }}" class="btn btn-cafe">View Full Menu</a>
+        <a href="{{ url_for('booking') }}" class="btn btn-outline-dark">Reserve a Table</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <img src="/static/images/the_bait/bait3.jpg" class="img-fluid rounded-4 kp-img" alt="The Bait Cafe coffee Reckong Peo">
+          </div>
+          <div class="col-6">
+            <img src="/static/images/the_bait/outside.jpg" class="img-fluid rounded-4 kp-img" alt="The Bait Cafe local food Kalpa">
+          </div>
+          <div class="col-12">
+            <img src="/static/images/the_bait/bait.jpg" class="img-fluid rounded-4 kp-img" alt="The Bait Cafe interior seating">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h3 class="section-title text-center mb-4">Why Visitors Choose The Bait Cafe</h3>
+    <div class="row gy-4 text-center">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">🍲</div>
+          <h5>Authentic Local Food</h5>
+          <p class="small text-muted">Kinnauri flavours alongside cafe favourites — widely rated as some of the best food in Kalpa.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">🏞️</div>
+          <h5>Mountain Views</h5>
+          <p class="small text-muted">Enjoy your meal with a view of the Himalayas right from Reckong Peo.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h5>Loved on Google</h5>
+          <p class="small text-muted">Rated {{ site.google_rating_cafe }}/5 by travellers visiting Kalpa &amp; Kinnaur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h3 class="section-title text-center mb-4">Google Reviews</h3>
+    <div class="row gy-4">
+      {% for r in reviews %}
+      <div class="col-md-4">
+        <div class="review-card h-100">
+          <div class="stars mb-2">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+          <p class="small text-muted">&ldquo;{{ r.text }}&rdquo;</p>
+          <p class="fw-semibold small mb-0">— {{ r.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{{ site.maps_link_cafe }}" target="_blank" class="btn btn-outline-dark">See All Reviews on Google</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section text-center py-5">
+  <div class="container">
+    <h3 class="text-white mb-3">Craving the Best Local Food in Kalpa?</h3>
+    <a href="{{ url_for('booking') }}" class="btn btn-accent btn-lg">Reserve Your Table</a>
+  </div>
+</section>
+
+{% endblock %}

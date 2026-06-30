@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Book a Table or Room | The Bait Cafe & Holasay Homestay, Kalpa{% endblock %}
+{% block content %}
+
+<section class="page-hero hero-mixed-bg small-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <span class="hero-tag">📅 Booking</span>
+    <h1>Reserve The Bait Cafe or Holasay Homestay</h1>
+    <p class="small">Same number for both — quick and easy booking</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <form method="POST" class="booking-form p-4 p-md-5 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <label class="form-label">I want to book</label>
+            <select class="form-select" name="booking_type" required>
+              <option value="" disabled selected>Choose an option</option>
+              <option value="Cafe Table">The Bait Cafe — Table</option>
+              <option value="Homestay Room">Holasay Homestay — Room</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" name="phone" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control" name="date" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Number of Guests</label>
+              <input type="number" min="1" class="form-control" name="guests" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Message (optional)</label>
+            <textarea class="form-control" name="message" rows="3" placeholder="Any special requests..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent w-100 btn-lg">Confirm Booking Request</button>
+          <p class="text-muted small text-center mt-3 mb-0">Or call us directly at <strong>{{ site.phone }}</strong></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Kinnaur Travel Blog | Kinner Kailash Trek, Festivals & Local Food{% endblock %}
+{% block meta_desc %}Read about Kinner Kailash trek, Fulaich festival, Raulane fair, and the best local food in Kalpa & Reckong Peo — stories from Kinnaur, Himachal Pradesh.{% endblock %}
+{% block content %}
+
+<section class="page-hero hero-mixed-bg small-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content" data-aos="fade-up">
+    <span class="hero-tag">📝 Kinnaur Blog</span>
+    <h1>Stories From Kalpa &amp; Kinnaur</h1>
+    <p class="small">Treks, festivals &amp; local food — everything that makes Kinnaur special</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-4">
+      {% for post in posts %}
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}">
+        <a href="{{ url_for('blog_detail', slug=post.slug) }}" class="blog-card-link">
+          <div class="blog-card h-100">
+            <img src="{{ post.image }}" class="blog-card-img" alt="{{ post.title }}">
+            <div class="blog-card-body">
+              <span class="badge-category">{{ post.category }}</span>
+              <h5 class="mt-2">{{ post.title }}</h5>
+              <p class="small text-muted">{{ post.excerpt }}</p>
+              <p class="small text-muted mb-0">{{ post.date }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
