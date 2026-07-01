@@ -1,0 +1,119 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Manage Specialities{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Specialities Management</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Cafe Specialities</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('admin_speciality_add') }}" method="POST" class="mb-3">
+                    <input type="hidden" name="spec_type" value="cafe">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <input type="text" name="icon" class="form-control" placeholder="Icon (e.g., ☕)" required>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <input type="text" name="title" class="form-control" placeholder="Title" required>
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <input type="text" name="desc" class="form-control" placeholder="Description" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Add Speciality</button>
+                </form>
+                
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for spec in cafe_spec %}
+                            <tr>
+                                <td>{{ spec.icon }}</td>
+                                <td>{{ spec.title }}</td>
+                                <td>{{ spec.desc[:40] }}{% if spec.desc|length > 40 %}...{% endif %}</td>
+                                <td>
+                                    <form action="{{ url_for('admin_speciality_delete', spec_type='cafe', index=loop.index0) }}" method="POST" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this speciality?')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Homestay Specialities</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('admin_speciality_add') }}" method="POST" class="mb-3">
+                    <input type="hidden" name="spec_type" value="homestay">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <input type="text" name="icon" class="form-control" placeholder="Icon (e.g., 🏡)" required>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <input type="text" name="title" class="form-control" placeholder="Title" required>
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <input type="text" name="desc" class="form-control" placeholder="Description" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Add Speciality</button>
+                </form>
+                
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for spec in homestay_spec %}
+                            <tr>
+                                <td>{{ spec.icon }}</td>
+                                <td>{{ spec.title }}</td>
+                                <td>{{ spec.desc[:40] }}{% if spec.desc|length > 40 %}...{% endif %}</td>
+                                <td>
+                                    <form action="{{ url_for('admin_speciality_delete', spec_type='homestay', index=loop.index0) }}" method="POST" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this speciality?')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock

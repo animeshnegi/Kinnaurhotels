@@ -4,18 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}The Bait Cafe & Holasay Homestay | Best Local Food & Stay in Kalpa, Reckong Peo, Kinnaur{% endblock %}</title>
-<meta name="description" content="{% block meta_desc %}The Bait Cafe and Holasay Homestay in Kalpa, Reckong Peo, Kinnaur — best food in Kalpa, authentic local Kinnauri food, Kinner Kailash trek base, and a cosy mountain-view homestay in Himachal Pradesh.{% endblock %}">
-<meta name="keywords" content="kinnaur local food, best food in Kalpa, Reckong Peo cafe, Kinnaur homestay, Holasay Homestay, The Bait cafe, Kalpa Kinnaur food, best homestay Kalpa, Kinner Kailash trek, Fulaich festival, Raulane fair, Kinnaur travel blog">
+<meta name="description" content="{% block meta_desc %}The Bait Cafe and Holasay Homestay in Kalpa, Reckong Peo, Kinnaur — best food in Kalpa, authentic local Kinnauri food, Kinner Kailash trek base, and a cosy mountain-view homestay in Himachal Pradesh. Experience Kinnauri hospitality, traditional cuisine, and stunning Himalayan views.{% endblock %}">
+<meta name="keywords" content="{% block meta_keywords %}kinnaur local food, best food in Kalpa, Reckong Peo cafe, Kinnaur homestay, Holasay Homestay, The Bait cafe, Kalpa Kinnaur food, best homestay Kalpa, Kinner Kailash trek, Fulaich festival, Raulane fair, Kinnaur travel blog, Kinnaur tourism, Kinnauri cuisine, Himalayan homestay, mountain view cafe, Kinnaur valley, Kalpa homestay, Reckong Peo restaurants, Kinnaur food guide, local Kinnauri dishes, chilgoza pine nuts, Kinnauri rajma, Thukpa Kinnaur, Kinnaur apple orchard, Kinner Kailash view, Kalpa travel guide, Reckong Peo attractions, Kinnaur culture, Himachal Pradesh homestay, best cafe Kinnaur, Kinnaur accommodation, Kinnaur sightseeing, Kalpa monastery, Chandika Devi temple, Kinnaur festivals, local wine Kinnaur{% endblock %}">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ request.url }}">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="{% block og_title %}The Bait Cafe & Holasay Homestay | Kalpa, Reckong Peo, Kinnaur{% endblock %}">
-<meta property="og:description" content="{% block og_desc %}Best local food in Kalpa at The Bait Cafe, and authentic Kinnauri hospitality at Holasay Homestay — near Reckong Peo, Kinnaur, Himachal Pradesh.{% endblock %}">
+<meta property="og:title" content="{% block og_title %}The Bait Cafe & Holasay Homestay | Best Local Food & Stay in Kalpa, Reckong Peo, Kinnaur{% endblock %}">
+<meta property="og:description" content="{% block og_desc %}Best local food in Kalpa at The Bait Cafe, and authentic Kinnauri hospitality at Holasay Homestay — near Reckong Peo, Kinnaur, Himachal Pradesh. Enjoy Kinner Kailash views, traditional Kinnauri cuisine, and cozy mountain stays.{% endblock %}">
 <meta property="og:image" content="{% block og_image %}https://picsum.photos/seed/kalpastays/1200/630{% endblock %}">
 <meta property="og:url" content="{{ request.url }}">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Additional SEO Meta Tags -->
+<meta name="geo.region" content="IN-HP">
+<meta name="geo.placename" content="Kinnaur, Kalpa, Reckong Peo">
+<meta name="geo.position" content="31.5333;78.0667">
+<meta name="ICBM" content="31.5333, 78.0667">
+<meta name="author" content="The Bait Cafe & Holasay Homestay">
+<meta name="copyright" content="The Bait Cafe & Holasay Homestay">
+<meta name="revisit-after" content="7 days">
+<meta name="distribution" content="global">
+<meta name="language" content="en">
+<meta name="audience" content="all">
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -26,20 +38,61 @@
       "@type": "CafeOrCoffeeShop",
       "name": "The Bait Cafe",
       "image": "https://picsum.photos/seed/bait-about1/700/500",
-      "address": { "@type": "PostalAddress", "streetAddress": "{{ site.address }}", "addressLocality": "Reckong Peo", "addressRegion": "Himachal Pradesh", "addressCountry": "IN" },
+      "description": "Best cafe in Reckong Peo, Kinnaur serving authentic Kinnauri food, coffee, and local delicacies with a mountain view.",
+      "address": { 
+        "@type": "PostalAddress", 
+        "streetAddress": "{{ site.address }}", 
+        "addressLocality": "Reckong Peo", 
+        "addressRegion": "Himachal Pradesh", 
+        "addressCountry": "IN" 
+      },
       "telephone": "{{ site.phone }}",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ site.google_rating_cafe }}", "reviewCount": "{{ site.google_reviews_cafe }}" },
-      "servesCuisine": "Local Kinnauri, Cafe, Bakery",
+      "aggregateRating": { 
+        "@type": "AggregateRating", 
+        "ratingValue": "{{ site.google_rating_cafe }}", 
+        "reviewCount": "{{ site.google_reviews_cafe }}" 
+      },
+      "servesCuisine": "Local Kinnauri, Cafe, Bakery, Himalayan Cuisine",
+      "priceRange": "₹₹",
+      "openingHours": "Mo-Su 08:00-22:00",
       "url": "{{ request.url_root }}cafe"
     },
     {
       "@type": "LodgingBusiness",
       "name": "Holasay Homestay",
       "image": "https://picsum.photos/seed/holasay-about1/700/500",
-      "address": { "@type": "PostalAddress", "streetAddress": "Kalpa", "addressLocality": "Kalpa", "addressRegion": "Himachal Pradesh", "addressCountry": "IN" },
+      "description": "Best homestay in Kalpa with stunning Kinner Kailash views, home-cooked Kinnauri meals, and warm family hospitality.",
+      "address": { 
+        "@type": "PostalAddress", 
+        "streetAddress": "Kalpa", 
+        "addressLocality": "Kalpa", 
+        "addressRegion": "Himachal Pradesh", 
+        "addressCountry": "IN" 
+      },
       "telephone": "{{ site.phone }}",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ site.google_rating_homestay }}", "reviewCount": "{{ site.google_reviews_homestay }}" },
+      "aggregateRating": { 
+        "@type": "AggregateRating", 
+        "ratingValue": "{{ site.google_rating_homestay }}", 
+        "reviewCount": "{{ site.google_reviews_homestay }}" 
+      },
       "url": "{{ request.url_root }}homestay"
+    },
+    {
+      "@type": "Place",
+      "name": "Kinner Kailash",
+      "description": "Sacred mountain peak visible from Kalpa, Himachal Pradesh. Popular trekking destination.",
+      "url": "https://en.wikipedia.org/wiki/Kinnaur_Kailash"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ request.url_root }}"
+        }
+      ]
     }
   ]
 }
@@ -52,25 +105,65 @@
 <!-- AOS scroll animation library -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-<link rel="icon" href="/static/images/icon.png" alt="Link icon" width="64" height="64">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="icon" href="/static/images/icon.png" alt="The Bait Cafe and Holasay Homestay icon" width="64" height="64">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top kp-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top kp-navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
-    <a class="navbar-brand kp-brand" href="{{ url_for('home') }}">The<span class="text-accent">Bait</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+    <a class="navbar-brand kp-brand" href="{{ url_for('home') }}" aria-label="The Bait Cafe and Holasay Homestay Home">
+      The<span class="text-accent">Bait</span>
+    </a>
+    
+    <!-- Mobile Right Side Icons -->
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+      <!-- Mobile Call Button -->
+      <a class="mobile-call-btn" href="tel:{{ site.phone }}" aria-label="Call us">
+        <i class="bi bi-telephone-fill"></i>
+      </a>
+      <!-- Mobile WhatsApp Button -->
+      <a class="mobile-whatsapp-btn" href="https://wa.me/91{{ site.whatsapp }}" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <!-- Toggler -->
+    </div>
+    
+    <!-- Desktop Toggler (hidden on mobile) -->
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('cafe') }}">The Bait Cafe</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('homestay') }}">Holasay Homestay</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('menu') }}">Menu</a></li> -->
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('blog_list') }}">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
-        <li class="nav-item"><a class="btn btn-accent btn-sm ms-lg-2" href="{{ url_for('booking') }}">Book Now</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}" aria-label="Home - Best cafe and homestay in Kinnaur">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('cafe') }}" aria-label="The Bait Cafe - Best cafe in Reckong Peo, Kinnaur">Cafe</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('homestay') }}" aria-label="Holasay Homestay - Best homestay in Kalpa with Kinner Kailash view">Homestay</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('blog_list') }}" aria-label="Kinnaur travel blog and guides">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}" aria-label="Contact The Bait Cafe and Holasay Homestay">Contact</a></li>
+        
+        <!-- Desktop Call Button (hidden on mobile) -->
+        <li class="nav-item ms-2 d-none d-lg-block">
+          <a class="nav-link call-btn" href="tel:{{ site.phone }}" aria-label="Call us at {{ site.phone }}">
+            <i class="bi bi-telephone-fill"></i>
+            <span class="call-text">{{ site.phone }}</span>
+          </a>
+        </li>
+        
+        <!-- Desktop WhatsApp Button (hidden on mobile) -->
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link whatsapp-btn" href="https://wa.me/91{{ site.whatsapp }}" target="_blank" aria-label="Chat with us on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </li>
+        
+        <!-- Book Now Button -->
+        <li class="nav-item">
+          <a class="btn btn-accent btn-sm ms-lg-2 book-now-btn" href="{{ url_for('booking') }}" aria-label="Book your stay at Holasay Homestay or table at The Bait Cafe">
+            <i class="bi bi-calendar-check"></i> <span class="book-text">Book Now</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -83,7 +176,7 @@
         {% for category, message in messages %}
           <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
             {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         {% endfor %}
       </div>
@@ -93,26 +186,27 @@
   {% block content %}{% endblock %}
 </main>
 
-<footer class="kp-footer">
+<footer class="kp-footer" role="contentinfo">
   <div class="container py-5">
     <div class="row gy-4">
       <div class="col-md-4">
         <h5 class="kp-brand text-white">🏔️ Kalpa<span class="text-accent">Stays</span></h5>
-        <p class="text-light-50 small">Home of <strong>The Bait Cafe</strong> &amp; <strong>Holasay Homestay</strong> — serving the best local food in Kalpa and offering a cosy homestay experience near Reckong Peo, Kinnaur.</p>
-        <div class="d-flex gap-2 mt-3">
+        <p class="text-light-50 small">Home of <strong>The Bait Cafe</strong> &amp; <strong>Holasay Homestay</strong> — serving the best local food in Kalpa and offering a cosy homestay experience near Reckong Peo, Kinnaur, Himachal Pradesh. Your gateway to Kinner Kailash views and authentic Kinnauri hospitality.</p>
+        <div class="d-flex gap-2 mt-3 flex-wrap">
           <span class="badge bg-light text-dark">⭐ {{ site.google_rating_cafe }}/5 Cafe</span>
           <span class="badge bg-light text-dark">⭐ {{ site.google_rating_homestay }}/5 Homestay</span>
+          <span class="badge bg-light text-dark">🏔️ Kinner Kailash View</span>
         </div>
       </div>
       <div class="col-md-4">
         <h6 class="text-uppercase text-accent mb-3">Quick Links</h6>
         <ul class="list-unstyled footer-links">
-          <li><a href="{{ url_for('cafe') }}">The Bait Cafe</a></li>
-          <li><a href="{{ url_for('homestay') }}">Holasay Homestay</a></li>
-          <li><a href="{{ url_for('menu') }}">Cafe Menu</a></li>
-          <li><a href="{{ url_for('blog_list') }}">Kinnaur Blog</a></li>
-          <li><a href="{{ url_for('booking') }}">Booking</a></li>
-          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cafe') }}">The Bait Cafe - Best Food in Kalpa</a></li>
+          <li><a href="{{ url_for('homestay') }}">Holasay Homestay - Best Stay in Kalpa</a></li>
+          <li><a href="{{ url_for('menu') }}">Cafe Menu - Kinnauri Cuisine</a></li>
+          <li><a href="{{ url_for('blog_list') }}">Kinnaur Travel Blog & Guides</a></li>
+          <li><a href="{{ url_for('booking') }}">Book Homestay & Cafe Reservation</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us in Kinnaur</a></li>
         </ul>
       </div>
       <div class="col-md-4">
@@ -120,10 +214,15 @@
         <p class="small mb-1">📍 {{ site.address }}</p>
         <p class="small mb-1">📞 {{ site.phone }}</p>
         <p class="small mb-1">✉️ {{ site.email }}</p>
+        <p class="small mb-1">🌄 Kinner Kailash, Kinnaur, Himachal Pradesh</p>
+        <div class="mt-2">
+          <span class="badge bg-success">Best Cafe in Kinnaur</span>
+          <span class="badge bg-info">Best Homestay in Kalpa</span>
+        </div>
       </div>
     </div>
     <hr class="border-light-50 mt-4">
-    <p class="text-center small mb-0 text-light-50">&copy; 2026 The Bait Cafe &amp; Holasay Homestay, Kalpa &mdash; Reckong Peo, Kinnaur. All rights reserved.</p>
+    <p class="text-center small mb-0 text-light-50">&copy; 2026 The Bait Cafe &amp; Holasay Homestay, Kalpa &mdash; Reckong Peo, Kinnaur, Himachal Pradesh. Best local food, Kinner Kailash views, and authentic Kinnauri hospitality. All rights reserved.</p>
   </div>
 </footer>
 

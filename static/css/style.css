@@ -254,5 +254,277 @@ background-size: cover;
 opacity: 0.95;
 }
 
+/* ===== DESKTOP CALL BUTTON ===== */
+.call-btn {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px !important;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 50px !important;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 15px rgba(16, 185, 129, 0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
 
+.call-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
 
+.call-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 25px rgba(16, 185, 129, 0.5);
+    color: #fff !important;
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.call-btn:hover::before {
+    transform: scale(1);
+}
+
+.call-btn i {
+    font-size: 1.1rem;
+    animation: phone-ring 2s ease-in-out infinite;
+}
+
+.call-btn .call-text {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+@keyframes phone-ring {
+    0%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(15deg); }
+    10% { transform: rotate(-15deg); }
+    15% { transform: rotate(10deg); }
+    20% { transform: rotate(-10deg); }
+    25% { transform: rotate(0deg); }
+}
+
+/* ===== DESKTOP WHATSAPP BUTTON ===== */
+.whatsapp-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0 !important;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50% !important;
+    color: #fff !important;
+    font-size: 1.4rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5);
+    color: #fff !important;
+}
+
+/* ===== MOBILE CALL & WHATSAPP BUTTONS ===== */
+.mobile-call-btn,
+.mobile-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+
+.mobile-call-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+
+.mobile-call-btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);
+}
+
+.mobile-whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);
+}
+
+.mobile-whatsapp-btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+}
+
+/* ===== BOOK NOW BUTTON ===== */
+.book-now-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    border: none !important;
+    padding: 8px 22px !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 15px rgba(245, 158, 11, 0.3) !important;
+    color: #fff !important;
+}
+
+.book-now-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 25px rgba(245, 158, 11, 0.5) !important;
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
+    color: #fff !important;
+}
+
+.book-now-btn i {
+    margin-right: 6px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    
+    /* Hide desktop buttons on mobile */
+    .d-none.d-lg-block {
+        display: none !important;
+    }
+    
+    /* Show mobile buttons */
+    .d-lg-none {
+        display: flex !important;
+    }
+    
+    .navbar-nav {
+        gap: 5px !important;
+        padding: 10px 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 10px 15px !important;
+        border-radius: 8px;
+        transition: background 0.2s ease;
+        font-size: 1rem;
+    }
+    
+    .nav-link:hover {
+        background: rgba(255,255,255,0.05);
+    }
+    
+    .book-now-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        margin-top: 5px;
+    }
+    
+    .book-text {
+        display: inline;
+    }
+    
+    /* Mobile call and whatsapp buttons in navbar */
+    .mobile-call-btn,
+    .mobile-whatsapp-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== TABLET RESPONSIVE ===== */
+@media (min-width: 769px) and (max-width: 992px) {
+    .mobile-call-btn,
+    .mobile-whatsapp-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 576px) {
+    .mobile-call-btn,
+    .mobile-whatsapp-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .book-now-btn {
+        padding: 10px 16px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ===== DARK MODE COMPATIBILITY ===== */
+@media (prefers-color-scheme: dark) {
+    .call-btn {
+        box-shadow: 0 2px 15px rgba(16, 185, 129, 0.2);
+    }
+    
+    .book-now-btn {
+        box-shadow: 0 2px 15px rgba(245, 158, 11, 0.2);
+    }
+}
+
+/* Mobile call button pulse animation */
+.mobile-call-btn {
+    animation: mobile-pulse 2s ease-in-out infinite;
+}
+
+@keyframes mobile-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+}
+
+.mobile-whatsapp-btn {
+    animation: whatsapp-pulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes whatsapp-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+    }
+}
+
+/* Stop animation on hover */
+.mobile-call-btn:hover,
+.mobile-whatsapp-btn:hover {
+    animation: none;
+}

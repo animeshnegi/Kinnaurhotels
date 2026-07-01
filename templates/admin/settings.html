@@ -1,0 +1,103 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Site Settings{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Site Settings</h2>
+</div>
+
+<form method="POST">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" value="{{ site.phone }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">WhatsApp</label>
+                        <input type="text" name="whatsapp" class="form-control" value="{{ site.whatsapp }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" value="{{ site.email }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" value="{{ site.address }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Google Ratings</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Cafe Rating</label>
+                        <input type="number" name="google_rating_cafe" class="form-control" step="0.1" value="{{ site.google_rating_cafe }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cafe Reviews Count</label>
+                        <input type="number" name="google_reviews_cafe" class="form-control" value="{{ site.google_reviews_cafe }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Homestay Rating</label>
+                        <input type="number" name="google_rating_homestay" class="form-control" step="0.1" value="{{ site.google_rating_homestay }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Homestay Reviews Count</label>
+                        <input type="number" name="google_reviews_homestay" class="form-control" value="{{ site.google_reviews_homestay }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5>Email API Settings (for booking notifications)</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">API Key</label>
+                        <input type="text" name="api_key" class="form-control" value="{{ mail_api.api_key if mail_api else '' }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">API URL</label>
+                        <input type="text" name="api_url" class="form-control" value="{{ mail_api.api_url if mail_api else '' }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">From Email</label>
+                        <input type="email" name="from_email" class="form-control" value="{{ mail_api.from_email if mail_api else '' }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">To Email (receive notifications)</label>
+                        <input type="email" name="to_email" class="form-control" value="{{ mail_api.to_email if mail_api else '' }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-save"></i> Save Settings
+    </button>
+</form>
+{% endblock %}

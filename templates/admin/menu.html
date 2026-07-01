@@ -1,0 +1,66 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Manage Menu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Menu Management</h2>
+</div>
+
+<!-- Add Category -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5>Add New Category</h5>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('admin_menu_category_add') }}" method="POST" class="row g-3">
+            <div class="col-auto">
+                <input type="text" name="category_name" class="form-control" placeholder="Category name" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Add Category</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Menu Items -->
+{% for category in menu %}
+<div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">{{ category.category }}</h5>
+        <form action="{{ url_for('admin_menu_category_delete', index=loop.index0) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this category?')">
+                <i class="bi bi-trash"></i> Delete Category
+            </button>
+        </form>
+    </div>
+    <div class="card-body">
+        <form action="{{ url_for('admin_menu_dish_add') }}" method="POST" class="row g-3 mb-3">
+            <input type="hidden" name="category_index" value="{{ loop.index0 }}">
+            <div class="col-auto">
+                <input type="text" name="dish_name" class="form-control" placeholder="Dish name" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary btn-sm">Add Dish</button>
+            </div>
+        </form>
+        
+        <div class="d-flex flex-wrap gap-2">
+            {% for dish in category.dishes %}
+            <span class="badge bg-secondary p-2">
+                {{ dish }}
+                <form action="{{ url_for('admin_menu_dish_delete') }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="category_index" value="{{ loop.index0 }}">
+                    <input type="hidden" name="dish_index" value="{{ dish_index }}">
+                    <button type="submit" class="btn btn-sm btn-link text-white" style="padding: 0 5px;" onclick="return confirm('Delete this dish?')">
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                </form>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
